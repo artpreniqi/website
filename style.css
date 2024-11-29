@@ -69,10 +69,6 @@ body {
 .login .btn:hover {
     background-color: #1c2fc0;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 
 .search {
     background-image: url('img/PristinaCityCenter.jpg') ;
@@ -133,5 +129,4 @@ body {
     position: relative;
     display: inline-block;
 }
->>>>>>> 8026598 (Added search)
->>>>>>> ea87151 (added search)
+
