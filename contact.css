@@ -1,0 +1,189 @@
+body {
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.navbar-left img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.navbar-left h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 70px;
+    margin-left: auto;
+    padding-right: 20px;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 70px;
+    margin-left: auto;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bolder;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #007BFF;
+}
+
+.login .btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #121e89;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.login .btn:hover {
+    background-color: #1c2fc0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 100px auto;
+    padding: 30px;
+    max-width: 1400px; 
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-section, .contact-info {
+    width: 45%; 
+
+}
+
+h2, h3 {
+    font-size: 28px; 
+    margin-bottom: 20px;
+    color: #000;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    gap: 15px; 
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px; 
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 120px; 
+    resize: none;
+}
+
+button {
+    background: #000;
+    color: #fff;
+    margin-top: 50px;
+    width: 200px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+.contact-info {
+    background: #f7f7f7;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.contact-info li {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.contact-info a {
+    color: #000;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    margin-top: 200px;
+}
+
+.social-media a {
+    margin-right: 10px;
+    color: #000;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #555;
+}
+input, textarea{
+    border: 1px solid #000;
+    border-radius: 10px;
+}
