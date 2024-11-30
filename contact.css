@@ -117,6 +117,7 @@ input, textarea {
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 16px;
+    font-family: 'Montserrat';
 }
 
 textarea {
@@ -176,7 +177,6 @@ button:hover {
 .social-media a {
     margin-right: 10px;
     color: #000;
-    font-size: 18px;
     text-decoration: none;
 }
 
