@@ -138,6 +138,7 @@ button {
     padding: 15px 25px;
     border: none;
     border-radius: 6px;
+    font-family: 'Montserrat';
     font-size: 18px;
     cursor: pointer;
 }
