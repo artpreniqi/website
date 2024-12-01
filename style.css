@@ -3,6 +3,8 @@ body {
     font-family: 'Montserrat';
 }
 
+/*Navbar*/
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -70,6 +72,8 @@ body {
     background-color: #1c2fc0;
 }
 
+/*Search*/
+
 .search {
     background-image: url('img/PristinaCityCenter.jpg') ;
     height: 800px;
@@ -130,6 +134,8 @@ body {
     display: inline-block;
 }
 
+/*Properties*/
+
 .properties h2 {
     padding-top: 30px;
     text-align: center;
@@ -159,6 +165,7 @@ body {
 }
 
 .tabs a.active {
+    font-weight: bold;
     color: #000;
     border-bottom: 2px solid #6200ea;
 }
@@ -211,6 +218,8 @@ body {
     font-size: 12px;
     color: #777;
 }
+
+/*Footer*/
 
 footer {
     background-color: #f5f5f5;
@@ -303,4 +312,94 @@ footer {
 
 .social-icons a:hover {
     color: #2832e4;
+}
+
+/*Sale Page*/
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container h2 {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 32px;
+    margin: 25px 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.menu a:hover {
+    color: black;
+    font-weight: bold;
+}
+
+.menu a.active {
+    font-weight: bold;
+    color: #000;
+    border-bottom: 2px solid #6200ea;
+}
+
+.property {
+    display: flex;
+    background: #fff;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.property img {
+    width: 480px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.properties-info {
+    padding: 20px;
+    padding-bottom: 5px;
+    flex: 1;
+}
+
+.property-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.property-location {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.properties-description {
+    font-size: 16px;
+    color: #313131;
+    margin-bottom: 50px;
+    text-align: justify;
+}
+
+.properties-details {
+    font-size: 14px;
+    color: #666;
+    bottom: 10px;
 }
