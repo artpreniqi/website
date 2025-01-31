@@ -138,3 +138,21 @@ form .input-field {
     background-color: #1c2fc0;
 }
 
+.toggle-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.toggle-link a {
+    color: #121e89;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.toggle-link a:hover {
+    color: #1c2fc0;
+    text-decoration: underline;
+}

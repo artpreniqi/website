@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Log in into your account - tsa.com</title>
+        <title>Sign up your account - tsa.com</title>
         <link rel="icon" href="img/icon.jpg" type="image/jpg">
         <link rel="stylesheet" href="login.css">
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
@@ -16,7 +16,7 @@
 
         <div class="container">
         <img src="img/logo.png" alt="logo">
-        <header>Log in</header>
+        <header>Signup</header>
             <form action="user.html" method="POST">
                 <div class="field email-field">
                     <div class="input-field">
@@ -27,26 +27,37 @@
                         <p class="error-text">Please enter a valid email</p>
                     </span>
                 </div>
-                <div class="field enter-password">
+                <div class="field create-password">
                     <div class="input-field">
-                        <input type="password" placeholder="Enter password" class="password">
+                        <input type="password" placeholder="Create password" class="password">
                         <i class="bx bx-hide show-hide"></i>
                     </div>
                     <span class="error password-error">
                         <i class="bx bx-error-circle error-icon"></i>
                         <p class="error-text">
-                        Password is required.</p>
+                        Please enter atleast 8 charatcer with number, symbol, small and
+                        capital letter.</p>
+                    </span>
+                </div>
+                <div class="field confirm-password">
+                    <div class="input-field">
+                        <input type="password" placeholder="Confirm password" class="cPassword">
+                        <i class="bx bx-hide show-hide"></i>
+                    </div>
+                    <span class="error cPassword-error">
+                        <i class="bx bx-error-circle error-icon"></i>
+                        <p class="error-text">Password don't match</p>
                     </span>
                 </div>
                 <div class="input-field button">
-                    <input type="submit" value="Log In">
+                    <input type="submit" value="Sign Up">
                 </div>
             </form>
             <div class="toggle-link">
-                Don't have an account? <a a href="signup.html">Sign Up</a>
+                Don't have an account? <a a href="login.html">Log In</a>
             </div>
         </div>
 
-        <script src="login.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
