@@ -30,19 +30,40 @@
     <div class="container">
         <div class="form-section">
             <h2>Na kontaktoni</h2>
-            <p>Duke plotësuar këtë formë, ju parashtoni pyetjen, ankesën apo sugjerimin tuaj.</p>
-            <form>
+                <p>Duke plotësuar këtë formë, ju parashtoni pyetjen, ankesën apo sugjerimin tuaj.</p>
+            <form id="contactForm" novalidate onsubmit="return validateForm(event)">
                 <div class="form-group">
-                    <input type="text" placeholder="Emri" required>
-                    <input type="text" placeholder="Mbiemri" required>
+                    <div>
+                        <label for="emri">Emri</label>
+                        <input type="text" id="emri" name="emri" placeholder="Emri" required minlength="2" maxlength="50">
+                        <span class="error" id="error-emri"></span>
+                    </div>
+                    <div>
+                        <label for="mbiemri">Mbiemri</label>
+                        <input type="text" id="mbiemri" name="mbiemri" placeholder="Mbiemri" required minlength="2" maxlength="50">
+                        <span class="error" id="error-mbiemri"></span>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="tel" placeholder="Numri i telefonit" required>
-                    <input type="email" placeholder="Email" required>
+                    <div>
+                        <label for="telefoni">Numri i telefonit</label>
+                        <input type="tel" id="telefoni" name="telefoni" placeholder="Numri i telefonit" required>
+                        <span class="error" id="error-telefoni"></span>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <span class="error" id="error-email"></span>
+                    </div>
                 </div>
-                <textarea placeholder="Mesazhi" required ></textarea>
+                
+                <div class="form-group">
+                    <label for="mesazhi">Mesazhi</label>
+                    <textarea id="mesazhi" name="mesazhi" placeholder="Mesazhi" required minlength="10"></textarea>
+                    <span class="error" id="error-mesazhi"></span>
+                </div>
                 <button type="submit">Dërgo</button>
-            </form>
+            </form>            
         </div>
         <div class="contact-info">
             <h3>Informatat kontaktuese</h3>
@@ -89,5 +110,47 @@
             </div>
         </div>
     </footer>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+
+            let valid = true;
+        
+            const telefoni = document.querySelector('input[name="telefoni"]');
+            const email = document.querySelector('input[name="email"]');
+            const emri = document.querySelector('input[name="emri"]');
+            const mbiemri = document.querySelector('input[name="mbiemri"]');
+            const mesazhi = document.querySelector('textarea[name="mesazhi"]');
+            const phoneRegex = /^\+?[0-9\s-]{9,15}$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+    
+            document.querySelectorAll('.error').forEach(el => el.textContent = "");
+        
+                if (emri.value.trim().length < 2) {
+                    document.getElementById("error-emri").textContent = "Emri duhet të ketë të paktën 2 karaktere!";
+                    valid = false;
+                }
+                if (mbiemri.value.trim().length < 2) {
+                    document.getElementById("error-mbiemri").textContent = "Mbiemri duhet të ketë të paktën 2 karaktere!";
+                    valid = false;
+                }
+                if (!phoneRegex.test(telefoni.value.trim())) {
+                    document.getElementById("error-telefoni").textContent = "Vendosni një numër telefoni valid!";
+                    valid = false;
+                }
+                if (!emailRegex.test(email.value.trim())) {
+                    document.getElementById("error-email").textContent = "Vendosni një email valid!";
+                    valid = false;
+                }
+                if (mesazhi.value.trim().length < 10) {
+                    document.getElementById("error-mesazhi").textContent = "Mesazhi duhet të ketë të paktën 10 karaktere!";
+                    valid = false;
+                }
+                if (valid) {
+                    document.getElementById("contactForm").submit();
+                }
+            }
+        </script>
 </body>
 </html>

@@ -109,11 +109,16 @@ p {
 form {
     margin-top: 20px;
 }
-
-.form-group {
-    display: flex;
-    gap: 15px; 
-    margin-bottom: 20px;
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 3px;
+    display: block;
+}
+label {
+    margin-bottom: 5px;
+    display: block; 
+    visibility: hidden;
 }
 
 input, textarea {
