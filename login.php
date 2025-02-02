@@ -90,7 +90,7 @@ $conn->close();
                 </div>
             </form>
             <div class="toggle-link">
-                Don't have an account? <a a href="signup.html">Sign Up</a>
+                Don't have an account? <a a href="signup.php">Sign Up</a>
             </div>
         </div>
 
