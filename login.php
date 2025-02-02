@@ -1,3 +1,42 @@
+<?php
+include 'config.php';
+session_start();
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $conn->real_escape_string($_POST['email']);
+    $password = $_POST['password'];
+
+    $sql = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $sql->bind_param("s", $email);
+    $sql->execute();
+    $result = $sql->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            echo "Login successful";
+            $_SESSION['user_id'] = $row['id']; 
+            $_SESSION['user_role'] = $row['role']; 
+            if ($row['role'] == 'admin') {
+                header("Location: admin.php");
+            } else {
+                header("Location: user.php");
+            }
+            exit(); 
+        } else {
+            echo "Invalid password";
+        }
+    } else {
+        echo "No user found with this email";
+    }
+
+    $sql->close();
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +56,7 @@
         <div class="container">
         <img src="img/logo.png" alt="logo">
         <header>Log in</header>
-            <form action="login.php" method="POST">
+            <form action="user.php" method="POST">
                 <div class="field email-field">
                     <div class="input-field">
                         <input type="email" name="email" placeholder="Enter your email" class="email">
@@ -37,6 +76,14 @@
                         <p class="error-text">
                         Password is required.</p>
                     </span>
+                </div>
+                <div class="field role-field">
+                    <div class="input-field">
+                        <select name="role" class="role">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="input-field button">
                     <input type="submit" value="Log In">

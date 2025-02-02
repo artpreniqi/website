@@ -80,6 +80,16 @@ form .input-field {
     border: 1px solid #d1d1d1;
 }
 
+.input-field select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 0 15px;
+    border: 1px solid #d1d1d1;
+}
+
 .invalid input {
     border-color: #d93025;
 }

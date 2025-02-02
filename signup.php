@@ -1,3 +1,46 @@
+<?php
+
+include 'config.php';
+
+if(isset($_POST['submit'])) {
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+    $role = $_POST['role'];
+
+ 
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format.";
+    } elseif ($password !== $confirm_password) {
+        echo "Passwords do not match.";
+    } elseif (strlen($password) < 8) {
+        echo "Password must be at least 8 characters long.";
+    } else {
+     
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    
+        $sql = "INSERT INTO users (email, password, role) VALUES (?,?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param($email, $hashed_password, $role);
+
+        if ($stmt->execute()) {
+          
+            header("Location: login.php");
+            exit();
+        } else {
+            echo "Error: " . $conn->error;
+        }
+
+        $stmt->close();
+    }
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +60,7 @@
         <div class="container">
         <img src="img/logo.png" alt="logo">
         <header>Signup</header>
-            <form action="signup.php" method="POST">
+            <form action="login.php" method="POST">
                 <div class="field email-field">
                     <div class="input-field">
                         <input type="email" name="email" placeholder="Enter your email" class="email">
@@ -41,7 +84,7 @@
                 </div>
                 <div class="field confirm-password">
                     <div class="input-field">
-                        <input type="password" placeholder="Confirm password" class="cPassword">
+                        <input type="password" name="confirm_password" placeholder="Confirm password" class="cPassword">
                         <i class="bx bx-hide show-hide"></i>
                     </div>
                     <span class="error cPassword-error">
@@ -49,12 +92,20 @@
                         <p class="error-text">Password don't match</p>
                     </span>
                 </div>
+                <div class="field role-field">
+                    <div class="input-field">
+                        <select name="role" class="role">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="input-field button">
                     <input type="submit" value="Sign Up">
                 </div>
             </form>
             <div class="toggle-link">
-                Don't have an account? <a a href="login.html">Log In</a>
+                Don't have an account? <a a href="login.php">Log In</a>
             </div>
         </div>
 
