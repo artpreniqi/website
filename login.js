@@ -1,15 +1,13 @@
 const form = document.querySelector("form"),
   emailField = form.querySelector(".email-field"),
   emailInput = emailField.querySelector(".email"),
-  passField = form.querySelector(".create-password"),
-  passInput = passField.querySelector(".password"),
-  cPassField = form.querySelector(".confirm-password"),
-  cPassInput = cPassField.querySelector(".cPassword");
-
+  passField = form.querySelector(".enter-password"),
+  passInput = passField.querySelector(".password");
+  
 
 function checkEmail() {
-  const emaiPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-  if (!emailInput.value.match(emaiPattern)) {
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!emailInput.value.match(emailPattern)) {
     return emailField.classList.add("invalid"); 
   }
   emailField.classList.remove("invalid"); 
@@ -31,39 +29,27 @@ eyeIcons.forEach((eyeIcon) => {
 });
 
 
-function createPass() {
-  const passPattern =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-  if (!passInput.value.match(passPattern)) {
-    return passField.classList.add("invalid"); 
+function enterPass() {
+    const passPattern = /.+/;
+  
+    if (!passInput.value.match(passPattern)) {
+      return passField.classList.add("invalid"); 
+    }
+    passField.classList.remove("invalid"); 
   }
-  passField.classList.remove("invalid"); 
-}
 
-
-function confirmPass() {
-  if (passInput.value !== cPassInput.value || cPassInput.value === "") {
-    return cPassField.classList.add("invalid");
-  }
-  cPassField.classList.remove("invalid");
-}
-
-
+ 
 emailInput.addEventListener("keyup", checkEmail);
-passInput.addEventListener("keyup", createPass);
-cPassInput.addEventListener("keyup", confirmPass);
+passInput.addEventListener("keyup", enterPass);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault(); 
   checkEmail();
-  createPass();
-  confirmPass();
+  enterPass();
 
   if (
     !emailField.classList.contains("invalid") &&
-    !passField.classList.contains("invalid") &&
-    !cPassField.classList.contains("invalid")
+    !passField.classList.contains("invalid") 
   ) {
     location.href = form.getAttribute("action");
   }
